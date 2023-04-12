@@ -42,3 +42,5 @@ Navbar.jsx+css
 changed previous App.jsx to App_From_Original.jsx
 
 codes in previous files unchanged
+
+Known bug: Quick Links section will cover customize screen, currently bound quick link to websiteHome
