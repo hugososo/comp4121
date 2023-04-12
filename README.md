@@ -26,3 +26,19 @@ cd server
 npm i
 npm run start
 ```
+
+
+changelog
+
+Added
+
+WebHome.jsx
+BrowseLatest.jsx+css
+QuickLinks.jsx+css
+CustomizeNow.jsx+css
+Navbar.jsx+css
+2 images
+
+changed previous App.jsx to App_From_Original.jsx
+
+codes in previous files unchanged
