@@ -32,12 +32,12 @@ changelog
 
 Added
 
-WebHome.jsx
-BrowseLatest.jsx+css
-QuickLinks.jsx+css
-CustomizeNow.jsx+css
-Navbar.jsx+css
-2 images
+WebHome.jsx  
+BrowseLatest.jsx+css  
+QuickLinks.jsx+css  
+CustomizeNow.jsx+css  
+Navbar.jsx+css  
+2 images  
 
 changed previous App.jsx to App_From_Original.jsx
 
