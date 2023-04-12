@@ -1,0 +1,58 @@
+.QL2 {
+  height: 400px;
+  flex-direction: column;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  padding: 0 80px;
+  align-items: center;
+  align-content: center;
+}
+.QL2 h1{
+  font-size: 30px;
+  height: 60px;
+}
+
+.QL {
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  align-items: center;
+  align-content: center;
+}
+
+.QL button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  height: 20px;
+  padding: 0px 20px;
+  border-radius: 0px;
+  border: 0;
+  margin: 10px 0px;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+
+.QL2 button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  height: 40px;
+  padding: 10px 20px;
+  border-radius: 0px;
+  border: 0;
+  margin: 0px 0px;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}

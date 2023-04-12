@@ -1,0 +1,10 @@
+.headline {
+  height: 50px;
+  background-color: #ffff66;
+  font-weight: 700;
+  font-size: 120%;
+  padding-top: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}

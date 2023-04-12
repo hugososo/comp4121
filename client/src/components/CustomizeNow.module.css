@@ -1,0 +1,39 @@
+.CN2 img {
+  width: 40%;
+  height: 700px;
+  padding-left: 00px;
+}
+
+.CN2 {
+  height: 800px;
+  flex-direction: row;
+  background-color: #000000;
+  display: flex;
+  padding: 0 80px;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.CN2 h1 {
+  width: 90%;
+  height: 150px;
+  margin: 0;
+  padding-right: 0px;
+  font-size: 48px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+}
+
+.CNL button {
+  align-items: center;
+  background-color: yellow;
+  color: black;
+  font-size: 30px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin: 0px 0px;
+  cursor: pointer;
+  width: 300px;
+}
