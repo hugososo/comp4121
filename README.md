@@ -9,6 +9,7 @@ You need to have NodeJs installed first
 ```
 cd client
 npm i
+npm install react-router-dom
 npm run dev
 ```
 
