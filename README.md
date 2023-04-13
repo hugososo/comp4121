@@ -31,6 +31,10 @@ npm run start
 
 changelog
 
+fixed quicklink covering customize and "go to customize" button having no links
+
+----------------
+
 Added
 
 WebHome.jsx  
@@ -44,4 +48,3 @@ changed previous App.jsx to App_From_Original.jsx
 
 codes in previous files unchanged
 
-Known bug: Quick Links section will cover customize screen, currently bound quick link to websiteHome
