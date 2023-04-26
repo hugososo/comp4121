@@ -1,0 +1,45 @@
+.productImageContainer {
+    height: fit-content;
+    width: fit-content;
+    display: inline-block;
+    overflow: hidden;
+    margin: 1.5rem 0 !important;
+}
+
+.productImageContainer img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    vertical-align: middle;
+}
+
+.productName{
+    font-size: 1.5rem;
+    margin: 0.75rem 0;
+    width: fit-content;
+}
+
+.productContainer:hover .productName {
+    border-bottom: 1px solid white; /* change the bottom border color */
+    margin-bottom: 0.75rem; /* add a bottom margin to the underline */
+}
+
+.productContainer:hover .productImageContainer img {
+    transition: transform 0.5s ease;
+    transform: scale(1.1);
+    transform-origin: center;
+}
+
+.productContainer:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.productPrice {
+    text-decoration: line-through;
+}
+
+.discountedPrice {
+    margin-left: 1rem;
+}

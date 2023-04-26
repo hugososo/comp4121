@@ -1,0 +1,30 @@
+.notFoundPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 12rem;
+}
+
+.notFoundPage h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.notFoundPage p {
+    font-size: 1.5rem;
+}
+
+.returnHome {
+    transition: all 0.3s ease-in-out;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+.returnHome:hover {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: gray;
+}

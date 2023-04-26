@@ -53,9 +53,11 @@ codes in previous files unchanged
 ChangeLog 26/4/2023
 
 Fixed styling of the navbar and quicklinks
+
 Added Link to the catalog page in home and header
 
 Added concurrently to run both client and server at the same time
+
 First install concurrently in the **server** folder with the following command
 ```
 npm install concurrently
