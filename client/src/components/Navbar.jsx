@@ -29,6 +29,9 @@ function Navbar(props) {
 		<Link to="/" className={classes.brand}>
 			<h1> Shop </h1>
 		</Link>
+		<Link to="/Catalog" className={classes.brand}>
+			<h1> Catalog </h1>
+		</Link>
 		</div>
 		<div className={classes.navLinks}>
 			{isLoggedIn && userLink}
