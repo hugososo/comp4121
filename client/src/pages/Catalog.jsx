@@ -9,7 +9,6 @@ import config from "../config/config.js";
 
 function Catalog() {
     const [products, setProducts] = useState([]);
-    const [productRows, setProductRows] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect( () => {
