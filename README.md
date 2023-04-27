@@ -32,7 +32,7 @@ touch .env
 Add the following entries to the newly created .env and Put your OpenAI API Key inside the OPENAI_API_KEY field:
 ```
 NODE_ENV=development
-PORT=3001
+PORT=8080
 
 # Database
 DB_HOST=localhost

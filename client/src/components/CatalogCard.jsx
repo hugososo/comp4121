@@ -2,8 +2,8 @@ import classes from "./CatalogCard.module.css";
 import {Link} from "react-router-dom";
 
 function CatalogCard (props) {
-    // Countermeasure for the super accurate floating point calculation
-    // i.e: 0.1 + 0.2 = 0.30000000000000004
+    // Countermeasure for the super accurate floating point calculation, i.e: 0.1 + 0.2 = 0.30000000000000004
+    // Deal with it by rounding up to closest 1 decimal place
     const discountRate = Math.ceil((1 - props.discountRate) * 10) / 10;
 
     return (

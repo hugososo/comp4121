@@ -1,17 +1,19 @@
 import classes from '../components/Catalog.module.css';
-import {ButtonGroup, Col, DropdownButton, Row, Dropdown, Button} from "react-bootstrap";
+import {Button, Col, Dropdown, DropdownButton, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSliders} from "@fortawesome/free-solid-svg-icons";
 
 import CatalogCard from "../components/CatalogCard.jsx";
+import LoadingSpinner from "../components/LoadingSpinner.jsx";
 import {useEffect, useState} from "react";
 import config from "../config/config.js";
 
 function Catalog() {
     const [products, setProducts] = useState([]);
+    const [sortMethod, setSortMethod] = useState("Default");
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect( () => {
+    useEffect(() => {
         const getProducts = async () => {
             await fetch(config.development.catalogEndpoint, {
                 method: "GET",
@@ -30,47 +32,91 @@ function Catalog() {
             .catch(err => console.log(err));
     }, []);
 
+    const sortProducts = (method) => {
+        switch (method) {
+            case 'Featured':
+                products.sort((a, b) => b.isPromoted - a.isPromoted);
+                break;
+            case 'Best Seller':
+                products.sort((a, b) => b.Stock - a.Stock);
+                break;
+            case 'Name - A-Z':
+                products.sort((a, b) => a.productName.localeCompare(b.productName));
+                break;
+            case 'Name - Z-A':
+                products.sort((a, b) => b.productName.localeCompare(a.productName));
+                break;
+            case 'Price - Low to High':
+                products.sort((a, b) => a.Price - b.Price);
+                break;
+            case 'Price - High to Low':
+                products.sort((a, b) => b.Price - a.Price);
+                break;
+            case 'Default':
+                products.sort((a, b) => a.productID - b.productID);
+                break;
+            default:
+                break;
+        }
+        setSortMethod(method);
+    };
+
     return (
         <div className={classes.catalog}>
-            <h1>Product Catalog</h1>
-            <div className={classes.filterBarContainer}>
-                <Row>
-                    <Col className='col-9'>
-                        <div className={classes.filterButton}>
-                            <FontAwesomeIcon icon={faSliders} className={classes.FAIcon}/>
-                            <span className={classes.filterText}>Filter</span>
-                        </div>
-                    </Col>
-                    <Col className='align-content-end'>
+            {!isLoaded ? <LoadingSpinner/> : null}
+            <div id='catalogContainer' hidden={!isLoaded}>
+                <h1>Product Catalog</h1>
+                <div className={classes.filterBarContainer}>
+                    <Row>
+                        <Col className='col-9'>
+                            <div className={classes.filterButton}>
+                                <FontAwesomeIcon icon={faSliders} className={classes.FAIcon}/>
+                                <span className={classes.filterText}>Filter</span>
+                            </div>
+                        </Col>
+                        <Col className='align-content-end'>
                         <span id='dropdownContainer' className={classes.dropdownContainer}>
-                            <DropdownButton key='outline-light' variant='outline-light' title='Sort By: Default'
+                            <DropdownButton key='outline-light' variant='outline-light' title={`Sort By: ${sortMethod}`}
                                             menuVariant="dark">
-                                <Dropdown.Item eventKey="1">Featured</Dropdown.Item>
-                                <Dropdown.Item eventKey="2">Best Seller</Dropdown.Item>
-                                <Dropdown.Item eventKey="3">Alphabetically: A-Z</Dropdown.Item>
-                                <Dropdown.Item eventKey="4">Alphabetically: Z-A</Dropdown.Item>
-                                <Dropdown.Item eventKey="5">Price: Low to High</Dropdown.Item>
-                                <Dropdown.Item eventKey="6">Price: High to Low</Dropdown.Item>
-                                <Dropdown.Divider></Dropdown.Divider>
-                                <Dropdown.Item eventKey="7" active>Default</Dropdown.Item>
+                                <Dropdown.Item onClick={() => sortProducts('Featured')}>
+                                    Featured
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => sortProducts('Best Seller')}>
+                                    Best Seller
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => sortProducts('Name - A-Z')}>
+                                    Name: A-Z
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => sortProducts('Name - Z-A')}>
+                                    Name: Z-A
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => sortProducts('Price - Low to High')}>
+                                Price: Low to High
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => sortProducts('Price - High to Low')}>
+                                    Price: High to Low
+                                </Dropdown.Item>
+                                <Dropdown.Divider/>
+                                <Dropdown.Item onClick={() => sortProducts('Default')}>
+                                    Default
+                                </Dropdown.Item>
                             </DropdownButton>
                         </span>
-                    </Col>
-                    <Col className={`text-end`}>
-                        <Button variant="outline-light" className={classes.totalCount} disabled>
-                            Total: 3 Products
-                        </Button>
-                    </Col>
-                </Row>
-            </div>
+                        </Col>
+                        <Col className={`text-end`}>
+                            <Button variant="outline-light" className={classes.totalCount} disabled>
+                                {products.length} Products
+                            </Button>
+                        </Col>
+                    </Row>
+                </div>
 
-            <Row className={classes.productContainerRow}>
+                <Row className={classes.productContainerRow}>
                     {
                         products?.map((product, idx) => {
                             return (
-                                <Col className='col-4'>
+                                <Col className='col-4' key={idx}>
                                     <CatalogCard
-                                        key={idx}
                                         image={product.img_url_path}
                                         name={product.productName}
                                         isDiscounted={product.is_Discounted}
@@ -82,7 +128,8 @@ function Catalog() {
                             )
                         })
                     }
-            </Row>
+                </Row>
+            </div>
         </div>
     )
 }
