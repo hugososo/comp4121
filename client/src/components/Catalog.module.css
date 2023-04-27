@@ -23,9 +23,12 @@
     color: white;
 }
 
-.filterText {
+.filterText, .FAIcon {
     color: #e3fc02;
     font-size: 20px;
+}
+
+.filterText {
     margin-left: 1rem;
 }
 
@@ -35,6 +38,19 @@
     padding: 0.5rem !important;
 }
 
-.totalCount{
-    margin-left: 10rem;
+.totalCount,
+.filterButton,
+.dropdownContainer{
+    width: fit-content !important;
+}
+
+
+.filterButton:hover {
+    cursor: pointer;
+    border-bottom: 1px solid rgba(227, 252, 2, 0.9) !important;
+}
+
+.filterButton:hover .filterText,
+.filterButton:hover .FAIcon {
+    color: rgba(227, 252, 2, 0.9) !important;
 }

@@ -36,8 +36,9 @@
     color: white;
 }
 
-.productPrice {
+.productPriceDiscounted {
     text-decoration: line-through;
+    color: gray;
 }
 
 .discountedPrice {
