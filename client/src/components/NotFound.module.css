@@ -28,3 +28,9 @@
     cursor: pointer;
     color: gray;
 }
+
+.title {
+    font-weight: bold;
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem;
+}

@@ -38,12 +38,16 @@
     padding: 0.5rem !important;
 }
 
+.filterBar {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
 .totalCount,
 .filterButton,
 .dropdownContainer{
     width: fit-content !important;
 }
-
 
 .filterButton:hover {
     cursor: pointer;
@@ -53,4 +57,21 @@
 .filterButton:hover .filterText,
 .filterButton:hover .FAIcon {
     color: rgba(227, 252, 2, 0.9) !important;
+}
+
+.priceFilterTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.priceFilterContainer{
+    margin-left: 5rem;
+}
+
+.priceFilterSubtitle {
+    margin-bottom: 1rem;
+}
+
+.priceFilterButton {
+    height: 100%;
 }
