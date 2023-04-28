@@ -1,17 +1,19 @@
 import classes from '../components/Catalog.module.css';
+
+import {useEffect, useState} from "react";
 import {Button, Col, Dropdown, DropdownButton, Form, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSliders} from "@fortawesome/free-solid-svg-icons";
+import {TextField} from "@mui/material";
 
 import CatalogCard from "../components/CatalogCard.jsx";
 import LoadingSpinner from "../components/LoadingSpinner.jsx";
 import NoProducts from "../components/NoProductFound.jsx";
-import {useEffect, useState} from "react";
 import config from "../config/config.js";
-import {TextField} from "@mui/material";
 
 function Catalog() {
     const [productsList, setProductsList] = useState([]);
+    const [fullBackupProductsList, setFullBackupProductsList] = useState([]);
     const [backupProductsList, setBackupProductsList] = useState([]);
     const [sortMethod, setSortMethod] = useState("Default");
     const [isLoaded, setIsLoaded] = useState(false);
@@ -37,6 +39,7 @@ function Catalog() {
 
                 // populate the catalog page with the products
                 setProductsList(catalog.data);
+                setFullBackupProductsList(catalog.data);
                 setBackupProductsList(catalog.data.products);
                 setIsLoaded(true);
                 document.title = "Catalog | MyPhoneCase";
@@ -151,6 +154,14 @@ function Catalog() {
         setAvailFilter(event.target.value);
     };
 
+    const handleResetPriceFilter = () => {
+        const productListBackup = backupProductsList;
+
+        setPriceFilter({min: 0, max: 0});
+        setProductsList({...productsList, products: productListBackup});
+        setShowNoProducts(false);
+    };
+
     const inputProps = {
         disableUnderline: true,
         inputProps: {min: 0, max: productsList.maxPrice}
@@ -256,6 +267,7 @@ function Catalog() {
                                     </Col>
                                     <Col className="col-3">
                                         <Button variant="outline-light" className={`w-100 ${classes.priceFilterButton}`}
+												disabled={priceFilter.min === 0 || priceFilter.max === 0}
                                                 onClick={() => {
                                                     handlePriceFilter()
                                                 }}>
@@ -265,8 +277,7 @@ function Catalog() {
                                     <Col className='col-3'>
                                         <Button variant="outline-light" className={`w-100 ${classes.priceFilterButton}`}
                                                 onClick={() => {
-                                                    setPriceFilter({min: 0, max: 0});
-                                                    setProductsList({...productsList, products: backupProductsList});
+                                                    handleResetPriceFilter()
                                                 }}>
                                             Reset
                                         </Button>
