@@ -67,7 +67,7 @@ function Catalog() {
             case 'Name - Z-A':
                 productList.sort((a, b) => b.productName.localeCompare(a.productName));
                 break;
-            case 'Price - Low to High':
+            case 'Price: Low to High':
                 productList.sort((a, b) => {
                     const discountRateA = Math.ceil((1 - a.discount_rate) * 10) / 10;
                     const discountRateB = Math.ceil((1 - b.discount_rate) * 10) / 10;
@@ -77,7 +77,7 @@ function Catalog() {
                     return aDiscountedPrice - bDiscountedPrice;
                 });
                 break;
-            case 'Price - High to Low':
+            case 'Price: High to Low':
                 productList.sort((a, b) => {
                     const discountRateA = Math.ceil((1 - a.discount_rate) * 10) / 10;
                     const discountRateB = Math.ceil((1 - b.discount_rate) * 10) / 10;
@@ -194,38 +194,38 @@ function Catalog() {
                             </div>
                         </Col>
                         <Col className='align-content-end'>
-                        <span id='dropdownContainer' className={classes.dropdownContainer}>
-                            <DropdownButton key='outline-light' variant='outline-light'
-                                            title={`Sort By: ${sortMethod} `}
-                                            menuVariant="dark">
-                                <Dropdown.Item onClick={() => sortProducts('Featured')}>
-                                    Featured
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={() => sortProducts('Best Seller')}>
-                                    Best Seller
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={() => sortProducts('Name - A-Z')}>
-                                    Name: A-Z
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={() => sortProducts('Name - Z-A')}>
-                                    Name: Z-A
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={() => sortProducts('Price - Low to High')}>
-                                Price: Low to High
-                                </Dropdown.Item>
-                                <Dropdown.Item onClick={() => sortProducts('Price - High to Low')}>
-                                    Price: High to Low
-                                </Dropdown.Item>
-                                <Dropdown.Divider/>
-                                <Dropdown.Item onClick={() => sortProducts('Default')}>
-                                    Default
-                                </Dropdown.Item>
-                            </DropdownButton>
-                        </span>
+                            <span id='dropdownContainer' className={classes.dropdownContainer}>
+                                <DropdownButton key='outline-light' variant='outline-light'
+                                                title={`Sort By ${sortMethod} `}
+                                                menuVariant="dark">
+                                    <Dropdown.Item onClick={() => sortProducts('Featured')}>
+                                        Featured
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={() => sortProducts('Best Seller')}>
+                                        Best Seller
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={() => sortProducts('Name - A-Z')}>
+                                        Name: A-Z
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={() => sortProducts('Name - Z-A')}>
+                                        Name: Z-A
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={() => sortProducts('Price: Low to High')}>
+                                    Price: Low to High
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={() => sortProducts('Price: High to Low')}>
+                                        Price: High to Low
+                                    </Dropdown.Item>
+                                    <Dropdown.Divider/>
+                                    <Dropdown.Item onClick={() => sortProducts('Default')}>
+                                        Default
+                                    </Dropdown.Item>
+                                </DropdownButton>
+                            </span>
                         </Col>
                         <Col className={`text-end`}>
                             <Button variant="outline-light" className={classes.totalCount} disabled>
-                                {productsList.total} Products
+                                {productsList.total} Items
                             </Button>
                         </Col>
                     </Row>
