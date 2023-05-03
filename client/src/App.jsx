@@ -8,6 +8,7 @@ import QuickLinks from "./components/QuickLinks";
 import Catalog from "./pages/Catalog";
 import App_From_original from "./App_From_original";
 import NotFound from "./pages/NotFound.jsx";
+import Product from "./pages/Product.jsx";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/" element={<WebsiteHome/>}/>
                 <Route path="/Home" element={<App_From_original/>}/>
                 <Route path="/Catalog" element={<Catalog/>}/>
+                <Route path="/Product" element={<Product/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
             <QuickLinks/>
